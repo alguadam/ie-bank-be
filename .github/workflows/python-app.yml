@@ -1,4 +1,4 @@
-name: IEbank backend CICD
+name: ie-bank-deployment
 
 on:
   push:
@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-
-
 
 permissions:
   contents: read
@@ -55,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -73,7 +71,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: 'jseijas-iebank-backend'
-        slot-name: 'Production'
-
+        app-name: 'ie-bank-api-dev'
     
