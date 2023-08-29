@@ -79,4 +79,5 @@ jobs:
       id: deploy-to-webapp
       with:
         app-name: 'ie-bank-api-dev'
+        package: .
     
