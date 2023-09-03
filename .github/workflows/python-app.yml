@@ -1,4 +1,4 @@
-name: ie-bank-deployment
+name: ie-bank-backend
 
 on:
   push:
