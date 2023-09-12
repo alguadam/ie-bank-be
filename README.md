@@ -107,9 +107,19 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
 
 ## Configuration variables
 
-> Learn more: 
+> Learn more: [Flask configuration handling](https://flask.palletsprojects.com/en/2.3.x/config/)
 
-This python app will load the configuration variables through the [`iebank_api\__init__.py`](iebank_api\__init__.py) file. This file will load different configuration variables depending on the value of the `ENV` variable of the system.
+When running the application in VSCode, the `.vscode/launch.json` file well set environment variables as configured in the `env` section:
+
+```json
+ "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_DEBUG": "1",
+                "ENV": "local"
+            },
+```
+
+This python app will read the environment variables in the [`iebank_api\__init__.py`](iebank_api\__init__.py) file. This file will load different variables depending on the value of the `ENV` variable read in the running machine.
 
 ```python
 # Select environment based on the ENV environment variable
