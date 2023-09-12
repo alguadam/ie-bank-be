@@ -8,6 +8,7 @@
     - [Install Prerequisites](#install-prerequisites)
     - [Set up your local environment with VSCode](#set-up-your-local-environment-with-vscode)
   - [Run and debug the backend locally](#run-and-debug-the-backend-locally)
+  - [Configuration variables](#configuration-variables)
 
 
 ## Overview
@@ -53,14 +54,14 @@ This source code works under the following technologies:
 
 ![Python - Create Environment on VSCode](https://code.visualstudio.com/assets/docs/python/flask-tutorial/command-palette.png)
 
-2. **Activate your virtual environment**. After your virtual environment creation has been completed, run [Terminal: Create New Terminal](https://code.visualstudio.com/docs/terminal/basics) \[`Ctrl`+`Shift`+ `` ` ``]) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script
+2. **Activate your virtual environment**. After your virtual environment creation has been completed, run [Terminal: Create New Terminal](https://code.visualstudio.com/docs/terminal/basics) \[`Ctrl`+`Shift`+ `` ` ``]) from the Command Palette, which creates a terminal and automatically activates the virtual environment by running its activation script.
 3. **Install Flask in the virtual environment**. In the VS Code Terminal, run the following command:
-
-You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use Terminal: Create New Terminal.
 
 ```bash
 $ python -m pip install flask
 ```
+
+You now have a self-contained environment ready for writing Flask code. VS Code activates the environment automatically when you use Terminal: Create New Terminal.
 
 ## Run and debug the backend locally
 
@@ -68,7 +69,7 @@ $ python -m pip install flask
 
 ![VS Code create launch file](https://code.visualstudio.com/assets/docs/python/shared/debug-panel-initial-view.png)
 
-2. **Set and run debug configuration for `Flask`**. Select the link and VS Code will prompt for a debug configuration. Select `Flask` from the dropdown and VS Code will populate a new `launch.json` file in the `.vscode` folder with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the configuration array. Edit the `.vscode/launch.json` configuration file with the snippet below and save (`Ctrl`+`S`). In the debug configuration dropdown list select the `Python: Flask configuration`.
+2. **Set and run debug configuration for `Flask`**. Select the link and VS Code will prompt for a debug configuration. Select `Python` and the `Flask` from the dropdown and VS Code will populate a new `launch.json` file in the `.vscode` folder with a Flask run configuration. The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the configuration array. Edit the `.vscode/launch.json` configuration file with the snippet below and save (`Ctrl`+`S`).
 
 ```json
 {
@@ -101,4 +102,49 @@ $ python -m pip install flask
         }
     ]
 }
+```
+3. Run and Debug your application locally. In the debug configuration dropdown list select the `Python: Flask configuration`.
+
+## Configuration variables
+
+> Learn more: 
+
+This python app will load the configuration variables through the [`iebank_api\__init__.py`](iebank_api\__init__.py) file. This file will load different configuration variables depending on the value of the `ENV` variable of the system.
+
+```python
+# Select environment based on the ENV environment variable
+if os.getenv('ENV') == 'local':
+    print("Running in local mode")
+    app.config.from_object('config.LocalConfig')
+elif os.getenv('ENV') == 'dev':
+    print("Running in development mode")
+    app.config.from_object('config.DevelopmentConfig')
+elif os.getenv('ENV') == 'ghci':
+    print("Running in github mode")
+    app.config.from_object('config.GithubCIConfig')
+else:
+    print("Running in production mode")
+    app.config.from_object('config.ProductionConfig')
+```
+
+The configuration that will be loaded is defined in the [`config.py`](config.py) file.
+
+```python
+class LocalConfig(Config):
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir,'.db', 'local.db')
+    DEBUG = True
+
+class GithubCIConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+    DEBUG = True
+
+class DevelopmentConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
+    dbuser=os.getenv('DBUSER'),
+    dbpass=os.getenv('DBPASS'),
+    dbhost=os.getenv('DBHOST'),
+    dbname=os.getenv('DBNAME')
+    )
+    DEBUG = True
 ```
