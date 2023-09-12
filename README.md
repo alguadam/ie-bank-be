@@ -9,6 +9,7 @@
     - [Set up your local environment with VSCode](#set-up-your-local-environment-with-vscode)
   - [Run and debug the backend locally](#run-and-debug-the-backend-locally)
   - [Configuration variables](#configuration-variables)
+  - [Continuos Delivery](#continuos-delivery)
 
 
 ## Overview
@@ -158,3 +159,9 @@ class DevelopmentConfig(Config):
     )
     DEBUG = True
 ```
+
+## Continuos Delivery
+
+> Learn more: [Deploy to App Service using GitHub Actions](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=userlevel#python-1)
+
+The file [`.github/workflows/python-app.yml`](.github\workflows\python-app.yml) contains the configuration for the CI/CD pipeline.
