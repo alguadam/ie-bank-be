@@ -32,6 +32,7 @@ This source code works under the following technologies:
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/tutorial/)
 - [Flask on VS Code](https://code.visualstudio.com/docs/python/tutorial-flask)
 - Linkedin Learning: [Building RESTful APIs with Flask](https://www.linkedin.com/learning/building-restful-apis-with-flask/)
+- [SQLite](https://www.sqlitetutorial.net/)
 
 ## Configure your local environment
 
@@ -41,7 +42,10 @@ This source code works under the following technologies:
 - **Install Python**. Install Python 3.11.5 from [here](https://www.python.org/downloads/release/python-3115/). Make sure to select the option to add Python to your PATH while installing.
 - **Install VSCode**. Install VSCode from [here](https://code.visualstudio.com/download).
 - **Install Python VSCode extension**. Install the Python extension for VSCode from [here](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
-- **Install SQL Lite**. Install SQL Lite from [here](https://www.sqlite.org/download.html). SQLite provides various tools for working across platforms e.g., Windows, Linux, and Mac. You need to select an appropriate version to download. Follow instructions [here](https://www.sqlitetutorial.net/download-install-sqlite/) to install in SQLite on your machine.
+- **Install SQL Lite**. Install SQL Lite from [here](https://www.sqlite.org/download.html). SQLite provides various tools for working across platforms e.g., Windows, Linux, and Mac. You need to select an appropriate version to download. After downloading:
+  - On Windows, unzip the downloaded file into a directory (e.g., `C:\sqlite`). Add the `C:\sqlite` directory to your PATH environment variable.
+  - On Linux, open a terminal and run the command `sudo apt-get install sqlite3`.
+  - On MacOS, open a terminal and run the command `brew install sqlite3`.
 
 ### Set up your local environment with VSCode
 
