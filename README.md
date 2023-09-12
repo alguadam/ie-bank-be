@@ -6,9 +6,7 @@
   - [Recommended tutorials](#recommended-tutorials)
   - [Configure your local environment](#configure-your-local-environment)
     - [Install Prerequisites](#install-prerequisites)
-    - [Set up your local environment](#set-up-your-local-environment)
-      - [On terminal](#on-terminal)
-    - [On VS Code](#on-vs-code)
+    - [Set up your local environment with VSCode](#set-up-your-local-environment-with-vscode)
   - [Run and debug the backend locally](#run-and-debug-the-backend-locally)
 
 
@@ -28,6 +26,7 @@ This source code works under the following technologies:
 - [psycopg2 2.9.7](https://pypi.org/project/psycopg2/)
 - [python-dotenv 0.21.0](https://pypi.org/project/python-dotenv/0.21.0/)
 - [SQLAlchemy 1.4.41](https://pypi.org/project/SQLAlchemy/1.4.41/)
+- [SQL Lite 3.43.0](https://www.sqlite.org/download.html)
 
 ## Recommended tutorials
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/tutorial/)
@@ -42,6 +41,7 @@ This source code works under the following technologies:
 - **Install Python**. Install Python 3.11.5 from [here](https://www.python.org/downloads/release/python-3115/). Make sure to select the option to add Python to your PATH while installing.
 - **Install VSCode**. Install VSCode from [here](https://code.visualstudio.com/download).
 - **Install Python VSCode extension**. Install the Python extension for VSCode from [here](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+- **Install SQL Lite**. Install SQL Lite from [here](https://www.sqlite.org/download.html). SQLite provides various tools for working across platforms e.g., Windows, Linux, and Mac. You need to select an appropriate version to download. Follow instructions [here](https://www.sqlitetutorial.net/download-install-sqlite/) to install in SQLite on your machine.
 
 ### Set up your local environment with VSCode
 
