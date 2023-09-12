@@ -104,7 +104,7 @@ You now have a self-contained environment ready for writing Flask code. VS Code 
     ]
 }
 ```
-3. Run and Debug your application locally. In the debug configuration dropdown list select the `Python: Flask configuration`.
+3. **Run and Debug your application locally**. Set a [breakpoint](https://code.visualstudio.com/docs/editor/debugging#_breakpoints) in any of the `.py` files. Go to the Debug view, select the 'Python: Flask' configuration, then press F5 or click the green play button.
 
 ## Configuration variables
 
