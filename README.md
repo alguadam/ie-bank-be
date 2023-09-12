@@ -162,6 +162,8 @@ class DevelopmentConfig(Config):
 
 ## Continuos Delivery
 
-> Learn more: [Deploy to App Service using GitHub Actions](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=userlevel#python-1)
+> Learn more:
+> - [Deploy to App Service using GitHub Actions](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=userlevel#python-1)
+> - [Deploying Python to Azure App Service](https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service)
 
 The file [`.github/workflows/python-app.yml`](.github\workflows\python-app.yml) contains the configuration for the CI/CD pipeline.
