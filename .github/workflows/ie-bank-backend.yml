@@ -11,13 +11,15 @@ permissions:
   contents: read
   id-token: write
 
+env:
+  BACKEND_WEBAPP_DEV: aguadamillas-be-dev
+
 jobs:
   build:
     
     runs-on: ubuntu-latest
     env:
       ENV: ghci
-      BACKEND_WEBAPP_DEV: aguadamillas-be-dev
 
     steps:
     - uses: actions/checkout@v3
