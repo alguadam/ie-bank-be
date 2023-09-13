@@ -166,4 +166,13 @@ class DevelopmentConfig(Config):
 > - [Deploy to App Service using GitHub Actions](https://learn.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=userlevel#python-1)
 > - [Deploying Python to Azure App Service](https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service)
 
-The file [`.github/workflows/python-app.yml`](.github\workflows\python-app.yml) contains the configuration for the CI/CD pipeline.
+The file [`.github/workflows/ie-bank-backend.yml`](.github\workflows\ie-bank-backend.yml) contains the configuration for the CI/CD pipeline
+
+
+### GitHub secrets
+
+The workflow uses the following GitHub secrets:
+
+Secret name | Description | Learn more
+--- | --- | ---
+`AZURE_CREDENTIALS` | Azure credentials to authenticate to Azure via Service Principal | [Use the Azure login action with a service principal secret](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#use-the-azure-login-action-with-a-service-principal-secret)

@@ -17,10 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENV: ghci
-      DBHOST: bla
-      DBUSER: bla
-      DBPASS: bla
-      DBNAME: bla
+      BACKEND_WEBAPP_DEV: aguadamillas-be-dev
 
     steps:
     - uses: actions/checkout@v3
@@ -73,6 +70,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: 'ie-bank-api-dev'
+        app-name: ${{ env.BACKEND_WEBAPP_DEV }}
         package: .
     
