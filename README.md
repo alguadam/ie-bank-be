@@ -10,6 +10,7 @@
   - [Run and debug the backend locally](#run-and-debug-the-backend-locally)
   - [Configuration variables](#configuration-variables)
   - [Continuos Delivery](#continuos-delivery)
+    - [GitHub secrets](#github-secrets)
 
 
 ## Overview
