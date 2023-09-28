@@ -2,14 +2,23 @@ from flask import Flask, request
 from iebank_api import db, app
 from iebank_api.models import Account
 
-
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
 
 @app.route('/skull', methods=['GET'])
 def skull():
-    return 'Hi! This is the BACKEND SKULL! 💀'
+    text = 'Hi! This is the BACKEND SKULL! 💀 '
+    text = text +'<br/>Database URL:' + db.session.bind.url.database
+    if db.session.bind.url.host:
+        text = text +'<br/>Database host:' + db.session.bind.url.host
+    if db.session.bind.url.port:
+        text = text +'<br/>Database port:' + db.session.bind.url.port
+    if db.session.bind.url.username:
+        text = text +'<br/>Database user:' + db.session.bind.url.username
+    if db.session.bind.url.password:
+        text = text +'<br/>Database password:' + db.session.bind.url.password
+    return text
 
 
 @app.route('/accounts', methods=['POST'])
