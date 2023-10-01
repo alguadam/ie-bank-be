@@ -12,12 +12,21 @@ load_dotenv()
 if os.getenv('ENV') == 'local':
     print("Running in local mode")
     app.config.from_object('config.LocalConfig')
+    #How does the code recognise local encironement? Chaning the ENV variable
+    #How do i configure the value of the variable?
+    #In the launch.json
+    '''
+    configuration to set variable to dev in azure server
+    '''
 elif os.getenv('ENV') == 'dev':
     print("Running in development mode")
     app.config.from_object('config.DevelopmentConfig')
 elif os.getenv('ENV') == 'ghci':
     print("Running in github mode")
     app.config.from_object('config.GithubCIConfig')
+    '''
+    create new elif for UAT environment
+    '''
 else:
     print("Running in production mode")
     app.config.from_object('config.ProductionConfig')
@@ -26,7 +35,7 @@ else:
 db = SQLAlchemy(app)
 
 from iebank_api.models import Account
-db.create_all()
+db.create_all() #this line is creating the database
 CORS(app)
 
 from iebank_api import routes
