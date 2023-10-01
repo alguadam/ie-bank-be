@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
+from applicationinsights.flask.ext import AppInsights
 
 app = Flask(__name__)
 
@@ -22,7 +23,6 @@ else:
     print("Running in production mode")
     app.config.from_object('config.ProductionConfig')
 
-
 db = SQLAlchemy(app)
 
 from iebank_api.models import Account
@@ -30,3 +30,10 @@ db.create_all()
 CORS(app)
 
 from iebank_api import routes
+
+# Initialize Application Insights and force flushing application insights handler after each request
+appinsights = AppInsights(app)
+@app.after_request
+def after_request(response):
+    appinsights.flush()
+    return response

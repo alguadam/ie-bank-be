@@ -4,6 +4,11 @@ from iebank_api.models import Account
 
 @app.route('/')
 def hello_world():
+    # app.logger.debug('This is a debug log message')
+    # app.logger.info('This is an information log message')
+    # app.logger.warn('This is a warning log message')
+    # app.logger.error('This is an error message')
+    # app.logger.critical('This is a critical message')
     return 'Hello, World!'
 
 @app.route('/skull', methods=['GET'])

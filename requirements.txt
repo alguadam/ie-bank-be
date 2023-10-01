@@ -6,3 +6,4 @@ python-dotenv==0.21.0
 SQLAlchemy==1.4.41
 pytest
 pytest-cov
+applicationinsights==0.11.10
