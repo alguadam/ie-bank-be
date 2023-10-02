@@ -7,8 +7,9 @@ def test_get_accounts(testing_client):
     WHEN the '/accounts' page is requested (GET)
     THEN check the response is valid
     """
-    response = testing_client.get('/accounts')
-    assert response.status_code == 200
+    with app.app_context():
+        response = testing_client.get('/accounts')
+        assert response.status_code == 200
 
 def test_dummy_wrong_path():
     """
@@ -26,7 +27,8 @@ def test_create_account(testing_client):
     WHEN the '/accounts' page is posted to (POST)
     THEN check the response is valid
     """
-    response = testing_client.post('/accounts', json={'name': 'John Doe', 'currency': '€'})
-    assert response.status_code == 200
+    with app.app_context():
+        response = testing_client.post('/accounts', json={'name': 'John Doe', 'currency': '€'})
+        assert response.status_code == 200
 
 
