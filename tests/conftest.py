@@ -6,7 +6,7 @@ from iebank_api import db, app
 @pytest.fixture
 def testing_client(scope='module'):
     db.create_all()
-    account = Account('Test Account', '€')
+    account = Account('Test Account', '€','Country')
     db.session.add(account)
     db.session.commit()
 
