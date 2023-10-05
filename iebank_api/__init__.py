@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
+app.app_context().push()
+
 
 load_dotenv()
 
@@ -26,7 +28,9 @@ else:
 db = SQLAlchemy(app)
 
 from iebank_api.models import Account
-db.create_all()
+with app.app_context():
+    db.create_all()
 CORS(app)
 
 from iebank_api import routes
+

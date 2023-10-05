@@ -12,11 +12,10 @@ permissions:
   id-token: write
 
 env:
-  BACKEND_WEBAPP_DEV: aguadamillas-be-dev
+  BACKEND_WEBAPP_DEV: gretal-be-dev #CAMBIAR ESTO PARA DEPLOY A MI PROPIO WORKFLOW. EXTRA: usar application insight to monitor appliations. 
 
 jobs:
   build:
-    
     runs-on: ubuntu-latest
     env:
       ENV: ghci
