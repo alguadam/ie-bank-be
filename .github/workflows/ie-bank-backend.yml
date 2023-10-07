@@ -2,7 +2,6 @@ name: ie-bank-backend
 
 on:
   push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -12,10 +11,11 @@ permissions:
   id-token: write
 
 env:
-  BACKEND_WEBAPP_DEV: glerer-be-dev #CAMBIAR ESTO PARA DEPLOY A MI PROPIO WORKFLOW. EXTRA: usar application insight to monitor appliations. 
+  BACKEND_WEBAPP_DEV: glerer-be-dev
 
 jobs:
   build:
+    
     runs-on: ubuntu-latest
     env:
       ENV: ghci
