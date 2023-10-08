@@ -28,6 +28,6 @@ from iebank_api.models import Account
 
 with app.app_context():
     db.create_all()
-CORS(app)
+CORS(app, resources={r"/accounts/*": {"origins": "https://gretal-fe-dev.azurewebsites.net"}})
 
 from iebank_api import routes
