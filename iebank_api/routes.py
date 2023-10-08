@@ -2,7 +2,7 @@ from flask import Flask, request
 from iebank_api import db, app
 from iebank_api.models import Account
 
-@app.route('/')
+@app.route('/') #hola
 def hello_world():
     return 'Hello, World!'
 
