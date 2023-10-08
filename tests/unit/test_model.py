@@ -7,7 +7,7 @@ def test_create_account():
     WHEN a new Account is created
     THEN check the name, account_number, balance, currency, status and created_at fields are defined correctly
     """
-    account = Account('John Doe', '€')
+    account = Account('John Doe', '€','USA')
     assert account.name == 'John Doe'
     assert account.currency == '€'
     assert account.country == 'USA'
