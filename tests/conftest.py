@@ -12,8 +12,7 @@ def testing_client(scope='module'):
         db.session.add(account)
         db.session.commit()
 
-    with app.test_client() as testing_client:
-        yield testing_client
+        with app.test_client() as testing_client:
+            yield testing_client
 
-    with app.app_context():
         db.drop_all()
