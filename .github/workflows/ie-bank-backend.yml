@@ -12,6 +12,7 @@ permissions:
 
 env:
   BACKEND_WEBAPP_DEV: glerer-be-dev #CAMBIAR ESTO PARA DEPLOY A MI PROPIO WORKFLOW. EXTRA: usar application insight to monitor appliations. 
+  BACKEND_WEBAPP_UAT: glerer-be-uat
 
 jobs:
   build:
@@ -48,7 +49,8 @@ jobs:
         path: |
           . 
 
-  deploy:
+  deploy-dev:
+    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -72,4 +74,23 @@ jobs:
       with:
         app-name: ${{ env.BACKEND_WEBAPP_DEV }}
         package: .
+  
+  deploy-uat:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download backend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+          path: .
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Deploy to Azure Web App (Backend)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.BACKEND_WEBAPP_UAT }}
+          package: ./
     
