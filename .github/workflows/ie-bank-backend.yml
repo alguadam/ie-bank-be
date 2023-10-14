@@ -79,6 +79,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
+    environment:
+      name: 'User Acceptance Testing'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
     steps:
       - name: Download backend artifact
         uses: actions/download-artifact@v3
