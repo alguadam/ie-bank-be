@@ -30,7 +30,7 @@ def test_create_account(testing_client):
     assert response.status_code == 200
 
 def test_delete_account(testing_client):
-    response = testing_client.post('/accounts/1')
+    response = testing_client.delete('/accounts/1')
     assert response.status_code == 200
 
 
