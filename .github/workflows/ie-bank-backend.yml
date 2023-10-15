@@ -78,9 +78,9 @@ jobs:
         package: .
   
   deploy-uat:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: [build, deploy-dev]
-    # if: ${{ pr_target_branch_name == 'refs/heads/main' }} #deploys only on PR to main branch
     environment:
       name: 'User Acceptance Testing'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
