@@ -22,7 +22,7 @@ def test_account_balance_update():
     THEN check if the balance is updated correctly
     """
     initial_balance = 100.0
-    account = Account('Jane Smith', 'USA', '$', balance=initial_balance)
+    account = Account('Jane Smith', 'USA', '$')
     amount_to_add = 50.0
     account.balance += amount_to_add
     assert account.balance == initial_balance + amount_to_add
