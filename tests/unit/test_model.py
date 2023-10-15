@@ -25,6 +25,10 @@ def test_account_balance_update():
     account = Account('Jane Smith', 'USA', '$')
     amount_to_add = 50.0
     account.balance += amount_to_add
+
+    print("Account balance:", account.balance)
+    print("Expected balance:", initial_balance + amount_to_add)
+
     assert account.balance == initial_balance + amount_to_add
 
 
@@ -39,7 +43,7 @@ def test_account_status_change():
     account = Account('Alice Johnson', 'Canada', '$')
     assert account.status == 'Active'
 
-    account.status == 'Inactive'
+    account.status = 'Inactive'
     assert account.status == 'Inactive'
 
 
