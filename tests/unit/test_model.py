@@ -21,7 +21,7 @@ def test_account_balance_update():
     WHEN the account balance is updated through deposit and withdrawal
     THEN check if the balance is updated correctly
     """
-    initial_balance = 100.0
+    initial_balance = 0.0
     account = Account('Jane Smith', 'USA', '$')
     amount_to_add = 50.0
     account.balance += amount_to_add
