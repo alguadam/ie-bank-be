@@ -102,3 +102,11 @@ jobs:
       with:
         app-name: ${{ env.BACKEND_WEBAPP_UAT }}
         package: .
+    - name: Install Postman CLI
+      run: |
+        curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+    - name: Login to Postman CLI
+      run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+    - name: Run API tests on UAT
+      run: |
+        postman collection run "1147254-bb79b80f-ce5e-4b26-85e2-c21da3697682"
