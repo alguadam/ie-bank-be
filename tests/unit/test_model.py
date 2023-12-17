@@ -68,7 +68,7 @@ def test_account_update_balance():
     assert account.balance == 75.0
 
 
-def curency():
+def test_account_update_balance_1():
     """
     GIVEN an Account model
     WHEN a new Account is created
@@ -77,7 +77,7 @@ def curency():
     account = Account('John Doe', '€', 'Germany')
     assert account.currency == '€'
 
-def country1():
+def test_account_update_balance_2():
     """
     GIVEN an Account model
     WHEN a new Account is created
@@ -86,7 +86,7 @@ def country1():
     account = Account('John Doe', '€', 'Germany')
     assert account.country == 'Germany'
 
-def name2():
+def test_account_update_balance_3():
     """
     GIVEN an Account model
     WHEN a new Account is created
@@ -95,7 +95,7 @@ def name2():
     account = Account('John Doe', '€', 'Germany')
     assert account.name == 'John Doe'
 
-def country2():
+def test_account_update_balance_4():
     """
     GIVEN an Account model
     WHEN a new Account is created
