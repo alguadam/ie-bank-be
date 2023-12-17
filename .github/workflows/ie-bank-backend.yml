@@ -4,6 +4,7 @@ on:
   push:
     branches: 
      -  Testing
+
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -103,7 +104,7 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: https://karimg-be-uat.azurewebsites.net
+        app-name: ${{ env.BACKEND_WEBAPP_UAT }}
         package: .
 
 
@@ -130,5 +131,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: https://karimg-be-prod.azurewebsites.net
+        app-name: ${{ env.BACKEND_WEBAPP_PROD }}
         package: .
