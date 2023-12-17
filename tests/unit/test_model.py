@@ -66,3 +66,41 @@ def test_account_update_balance():
     # Deduct an amount from the balance
     account.balance -= 75.0
     assert account.balance == 75.0
+
+
+def curency():
+    """
+    GIVEN an Account model
+    WHEN a new Account is created
+    THEN check the currency is set correctly
+    """
+    account = Account('John Doe', '€', 'Germany')
+    assert account.currency == '€'
+
+def country1():
+    """
+    GIVEN an Account model
+    WHEN a new Account is created
+    THEN check the country is set correctly
+    """
+    account = Account('John Doe', '€', 'Germany')
+    assert account.country == 'Germany'
+
+def name2():
+    """
+    GIVEN an Account model
+    WHEN a new Account is created
+    THEN check the name is set correctly
+    """
+    account = Account('John Doe', '€', 'Germany')
+    assert account.name == 'John Doe'
+
+def country2():
+    """
+    GIVEN an Account model
+    WHEN a new Account is created
+    THEN check the name is set correctly
+    """
+    account = Account('John Doe', '€', 'US')
+    assert account.country == 'US'
+
