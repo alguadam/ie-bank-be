@@ -103,10 +103,10 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: ${{ env.BACKEND_WEBAPP_UAT }}
+        app-name: https://karimg-be-uat.azurewebsites.net
         package: .
 
-        
+
   deploy-prod:
     runs-on: ubuntu-latest
     needs: [build, deploy-dev, deploy-uat]
@@ -130,5 +130,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       id: deploy-to-webapp
       with:
-        app-name: ${{ env.BACKEND_WEBAPP_UAT }}
+        app-name: https://karimg-be-prod.azurewebsites.net
         package: .
