@@ -2,7 +2,8 @@ name: ie-bank-backend
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+     -  Testing
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -14,6 +15,7 @@ permissions:
 env:
   BACKEND_WEBAPP_DEV: karimg-be-dev
   BACKEND_WEBAPP_UAT: karimg-be-uat
+  BACKEND_WEBAPP_PROD: karimg-be-prod
   source_branch_name: ${{ github.ref }}
   pr_target_branch_name: ${{ github.base_ref }}
 
@@ -103,6 +105,8 @@ jobs:
       with:
         app-name: ${{ env.BACKEND_WEBAPP_UAT }}
         package: .
+
+        
   deploy-prod:
     runs-on: ubuntu-latest
     needs: [build, deploy-dev, deploy-uat]
