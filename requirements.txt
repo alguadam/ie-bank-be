@@ -8,3 +8,6 @@ pytest
 pytest-cov
 Werkzeug==2.2.2
 #applicationinsights==0.11.10
+
+
+#trying something 
