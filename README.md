@@ -40,7 +40,6 @@ This source code works under the following technologies:
 ## Configure your local environment
 
 ### Install Prerequisites
-
 - **Install git**. Install git from [here](https://git-scm.com/downloads).
 - **Install Python**. Install Python 3.11.5 from [here](https://www.python.org/downloads/release/python-3115/). Make sure to select the option to add Python to your PATH while installing.
 - **Install VSCode**. Install VSCode from [here](https://code.visualstudio.com/download).
