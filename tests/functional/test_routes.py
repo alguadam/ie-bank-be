@@ -26,7 +26,31 @@ def test_create_account(testing_client):
     WHEN the '/accounts' page is posted to (POST)
     THEN check the response is valid
     """
-    response = testing_client.post('/accounts', json={'name': 'John Doe', 'currency': '€'})
+    response = testing_client.post('/accounts', json={'name': 'John Doe', 'country': 'Spain', 'currency': '€'})
+    assert response.status_code == 200
+    
+def test_get_single_account(testing_client):
+    """
+    GIVEN a Flask application
+    WHEN the '/accounts/<account_id>' page is requested (GET) with a valid account ID
+    THEN check the response is valid
+    """
+        
+    testing_client.post("/accounts", json={"name": "John Doe", "country": "Spain", "currency": "$"})
+    
+    account_number = 1
+    response = testing_client.get(f'/accounts/{account_number}')
     assert response.status_code == 200
 
+def test_update_account(testing_client):
+    """
+    GIVEN a Flask application
+    WHEN the '/accounts/<account_id>' page is updated (PUT) with a valid account ID
+    THEN check the response is valid
+    """
+    testing_client.post("/accounts", json={"name": "John Doe", "country": "Spain", "currency": "$"}) 
+    updated_data = {'name': 'Greta Lerer'}
+    account_id = 1
+    response = testing_client.put(f'/accounts/{account_id}', json=updated_data)
+    assert response.status_code == 200
 
